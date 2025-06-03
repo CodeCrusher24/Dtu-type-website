@@ -2,14 +2,13 @@
 
 > A frontend prototype for Delhi Technological University's Hostel Management Department
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/roaring-meringue-aac216/deploy-status)](https://roaring-meringue-aac216.netlify.app/)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 ## 📋 Overview
 
 This is a **frontend prototype** created for the Hostel Management Department of **Delhi Technological University (DTU)**. It serves as a **sample submission** and is not an official DTU website. The project demonstrates frontend capabilities using **vanilla HTML, CSS, and JavaScript**.
 
-🔗 **Live Demo**: [View Website](https://roaring-meringue-aac216.netlify.app/)
+🔗 **Live Demo**: [View Website](https://roaring-meringue-aac216.netlify.app/) ✅
 
 ## ✨ Features
 
