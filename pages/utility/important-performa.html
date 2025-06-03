@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Document metadata -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Important Performa - DTU Hostel</title>
+    <!-- Stylesheet and script references -->
+    <link rel="stylesheet" href="../../styles/style.css" />
+    <script src="../../scripts/script.js" defer></script>
+    <!-- Page-specific styling for download buttons -->
+    <style>
+      .download-btn {
+        display: inline-block;
+        background-color: #333;
+        color: white;
+        padding: 4px 10px;
+        border-radius: 4px;
+        text-decoration: none;
+        font-size: 0.9em;
+        margin-left: 10px;
+      }
+      .download-btn:hover {
+        background-color: #555;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Page wrapper - Contains entire website content -->
+    <div class="page-wrapper">
+      <!-- Main content wrapper -->
+      <div class="wrapper">
+        <!-- Containers for dynamic component loading -->
+        <div id="header"></div>
+        <div id="navbar"></div>
+
+        <!-- Main content area -->
+        <main>
+          <!-- Content wrapper - Contains main content and sidebar -->
+          <section class="content-wrapper">
+            <!-- Main content section -->
+            <section class="main-content content-page">
+              <h1>Important Performa</h1>
+              
+              <!-- Document download link with button -->
+              <p><a href="../../documents/show-cause-notice.pdf">SHOW-CAUSE-NOTICE</a> <a href="../../documents/show-cause-notice.pdf" class="download-btn">Download</a></p>
+              
+            </section>
+
+            <!-- Sidebar container - Loaded dynamically -->
+            <aside id="sidebar-widget" class="sidebar-widget-container">
+              <!-- Sidebar content loaded dynamically -->
+            </aside>
+          </section>
+        </main>
+
+        <!-- Footer container - Loaded dynamically -->
+        <div id="footer"></div>
+      </div>
+    </div>
+  </body>
+</html>
+

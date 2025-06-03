@@ -1,0 +1,56 @@
+<!-- 
+  Slideshow Component
+  
+  This component creates an image carousel for the homepage that displays
+  featured hostel images with navigation controls and captions.
+  
+  Features:
+  - Auto-advancing slides (controlled by script.js)
+  - Previous/Next navigation buttons
+  - Pagination buttons
+  - Slide numbering
+  - Image captions
+  
+  Last Updated: 21 May 2025
+-->
+<section id="slideshow" class="slideshow">
+  <!-- Individual slides with captions stored in data-caption attribute -->
+  <div class="slides active" id="slide1" data-caption="Hostel Entrance">
+    <img src="img1.png" alt="Slide 1" />
+    <div class="slide-number">1 / 5</div>
+  </div>
+  <div class="slides" id="slide2" data-caption="Mess Facility">
+    <img src="img2.png" alt="Slide 2" />
+    <div class="slide-number">2 / 5</div>
+  </div>
+  <div class="slides" id="slide3" data-caption="Common Room">
+    <img src="img3.png" alt="Slide 3" />
+    <div class="slide-number">3 / 5</div>
+  </div>
+  <div class="slides" id="slide4" data-caption="Hostel Room">
+    <img src="img4.png" alt="Slide 4" />
+    <div class="slide-number">4 / 5</div>
+  </div>
+  <div class="slides" id="slide5" data-caption="Campus View">
+    <img src="img5.png" alt="Slide 5" />
+    <div class="slide-number">5 / 5</div>
+  </div>
+
+  <!-- Prev / Next navigation buttons -->
+  <button class="prev" aria-label="Previous Slide">&#10094;</button>
+  <button class="next" aria-label="Next Slide">&#10095;</button>
+
+  <!-- Bottom overlay with caption and numeric pagination buttons -->
+  <div class="slideshow-bottom-bar">
+    <!-- Dynamic caption element - updated by JavaScript -->
+    <div class="caption">Hostel Entrance</div>
+    <!-- Pagination buttons -->
+    <div class="slide-buttons">
+      <button class="slide-btn active" data-slide="0" aria-label="Slide 1">1</button>
+      <button class="slide-btn" data-slide="1" aria-label="Slide 2">2</button>
+      <button class="slide-btn" data-slide="2" aria-label="Slide 3">3</button>
+      <button class="slide-btn" data-slide="3" aria-label="Slide 4">4</button>
+      <button class="slide-btn" data-slide="4" aria-label="Slide 5">5</button>
+    </div>
+  </div>
+</section>

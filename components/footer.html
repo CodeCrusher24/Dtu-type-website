@@ -1,0 +1,28 @@
+<!-- 
+  Footer Component
+  
+  Contains copyright information, links to main university website,
+  disclaimer page, and hostel office contact information.
+-->
+<footer class="footer">
+  <!-- Left section with copyright and links -->
+  <div class="footer-left">
+    <span class="footer-top">Copyright © 2014 - <span id="current-year">2025</span>, Delhi Technological University .</span>
+    <a href="https://dtu.ac.in" class="footer-link">dtu.ac.in</a>
+    <a href="/pages/disclaimer.html" class="footer-link">Disclaimer</a>
+  </div>
+  
+  <!-- Right section with address details -->
+  <div class="footer-right" style="text-align: right; min-width: 260px;">
+    Hostel Office, Transit Hostel (Ramanujan Hostel)<br />
+    Delhi Technological University<br />
+    Shahbad Daulatpur, Main Bawana Road<br />
+    Delhi - 42, India
+  </div>
+</footer>
+
+<!-- Script to update the copyright year automatically -->
+<script>
+  // Set the current year in the footer
+  document.getElementById('current-year').textContent = new Date().getFullYear();
+</script>

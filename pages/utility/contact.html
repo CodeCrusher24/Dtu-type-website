@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Contact Us - DTU Hostel</title>
+    <link rel="stylesheet" href="../../styles/style.css" />
+    <script src="../../scripts/script.js" defer></script>
+    <style>
+      .contact-card {
+        margin-bottom: 2rem;
+        padding: 1.5rem;
+        border-radius: 8px;
+      }
+      
+      .hostel-queries {
+        background-color: #f7f7f7;
+        border-left: 5px solid #0097a7;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      }
+      
+      .web-queries-section {
+        background-color: #eaf7ff;
+        border-left: 5px solid #2196F3;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      }
+
+      .contact-person {
+        border-bottom: 1px dashed #ddd;
+        margin-bottom: 1.5rem;
+        padding-bottom: 1.5rem;
+      }
+      
+      .address-section {
+        padding-top: 0.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page-wrapper">
+      <div class="wrapper">
+        <!-- Containers for dynamic loading -->
+        <div id="header"></div>
+        <div id="navbar"></div>
+
+        <!-- No slideshow on this page -->
+
+        <main>
+          <section class="content-wrapper">
+            <section class="main-content content-page">
+              <h1>Contact Us</h1>
+              <div class="contact-info">
+                <div class="contact-card hostel-queries">
+                  <h2>For hostel related queries contact</h2>
+                  <div class="contact-person">
+                    <p>Prof. Raj Kumar Singh</p>
+                    <h3>Chief Warden, Hostel Office (Office Time: 05:00 PM to 06:00 PM)</h3>
+                    <p>Email: <a href="mailto:rajkumarsingh@dce.ac.in" class="email-link">rajkumarsingh@dce.ac.in</a></p>
+                  </div>
+                  <div class="contact-person">
+                    <p>Dr. R.K. Yadav</p>
+                    <h3>OIC, Hostel Office</h3>
+                    <p>Email: <a href="mailto:hostels@dtu.ac.in" class="email-link">hostels@dtu.ac.in</a></p>
+                    <p>Contact: +911-27852204, 9716304018, 9555902621 Extn: 1104, 1113</p>
+                    <p class="note">Available between 10 a.m. to 5 p.m. on working days.</p>
+                  </div>
+                  <div class="address-section">
+                    <h3>Postal Address</h3>
+                    <address>
+                      Hostel Office, Transit Hostel (Ramanujan Hostel)<br>
+                      Delhi Technological University<br>
+                      Shahbad Daulatpur, Bawana Road<br>
+                      Delhi – 42
+                    </address>
+                  </div>
+                </div>
+                <div class="contact-card web-queries-section">
+                  <h2>For website related queries contact</h2>
+                  <p>Design and Web Development Team</p>
+                  <p>Delhi Technological University, Delhi</p>
+                  <p>Web: <a href="#" class="website-link">Click here</a></p>
+                  <p>Email: <a href="mailto:dvd@dce.edu" class="email-link">dvd@dce.edu</a></p>
+                </div>
+              </div>
+            </section>
+
+            <aside id="sidebar-widget" class="sidebar-widget-container">
+              <!-- Sidebar content loaded dynamically -->
+            </aside>
+          </section>
+        </main>
+
+        <div id="footer"></div>
+      </div>
+    </div>
+  </body>
+</html>
+

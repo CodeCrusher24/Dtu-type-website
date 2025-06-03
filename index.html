@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Document metadata -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>DTU Hostel</title>
+    <!-- Stylesheet and script references -->
+    <link rel="stylesheet" href="styles/style.css" />
+    <script src="scripts/script.js" defer></script>
+  </head>
+  <body>
+    <!-- Page wrapper - Contains entire website content -->
+    <div class="page-wrapper">
+      <!-- Main content wrapper -->
+      <div class="wrapper">
+        <!-- Containers for dynamic component loading -->
+        <div id="header"></div>
+        <div id="navbar"></div>
+
+        <!-- Slideshow container - Homepage feature banner -->
+        <div class="slideshow-container">
+          <!-- Slideshow images and controls -->
+          <div class="slideshow">
+            <!-- Individual slides - Each contains one image -->
+            <div class="slides active">
+              <img src="images/img1.png" alt="DTU Hostel Image 1" />
+              <div class="slide-number">1 / 5</div>
+            </div>
+            <div class="slides">
+              <img src="images/img2.png" alt="DTU Hostel Image 2" />
+              <div class="slide-number">2 / 5</div>
+            </div>
+            <div class="slides">
+              <img src="images/img3.png" alt="DTU Hostel Image 3" />
+              <div class="slide-number">3 / 5</div>
+            </div>
+            <div class="slides">
+              <img src="images/img4.png" alt="DTU Hostel Image 4" />
+              <div class="slide-number">4 / 5</div>
+            </div>
+            <div class="slides">
+              <img src="images/img5.png" alt="DTU Hostel Image 5" />
+              <div class="slide-number">5 / 5</div>
+            </div>
+            <!-- Navigation buttons for slideshow -->
+            <button class="prev">❮</button>
+            <button class="next">❯</button>
+          </div>
+          <!-- Slideshow pagination buttons -->
+          <div class="slide-buttons">
+            <button class="slide-btn active">1</button>
+            <button class="slide-btn">2</button>
+            <button class="slide-btn">3</button>
+            <button class="slide-btn">4</button>
+            <button class="slide-btn">5</button>
+          </div>
+        </div>
+
+        <!-- Main content area -->
+        <main>
+          <!-- Content wrapper - Contains main content and sidebar -->
+          <section class="content-wrapper">
+            <!-- Main content section -->
+            <section class="main-content content-page">
+              <h1>Hostels - Delhi Technological University</h1>
+              <p>
+                Delhi Technological University has 10 Boys and 3 Girls hostels in the campus that can accommodate around 2500 students. These hostels are:
+              </p>
+              
+              <!-- Boys' Hostels list -->
+              <h2>Boys' Hostels</h2>
+              <ol>
+                <li>Bhaskaracharya Hostel</li>
+                <li>Sir C. V. Raman Hostel</li>
+                <li>Sir J.C. Bose Hostel</li>
+                <li>Varahmihir Hostel</li>
+                <li>Sir Vishveshwarya Hostel</li>
+                <li>Homi Jehangir Bhabha Hostel</li>
+                <li>Aryabhatt Hostel</li>
+                <li>Ramanujan Hostel</li>
+                <li>Dr. APJ Abdul Kalam Hostel (AC)</li>
+                <li>Type – II Hostel</li>
+              </ol>
+
+              <!-- Girls' Hostels list -->
+              <h2>Girls' Hostels</h2>
+              <ol>
+                <li>Sister Nivediata Hostel</li>
+                <li>Kalpana Chawla Hostel</li>
+                <li>Virangana Lakshmibai Hostel, Block-1&2 (AC)</li>
+              </ol>
+
+              <!-- Information about mess services -->
+              <p>The mess services are provided in six of the hostels. These are Sir Vishversvaraya Hostel, Sir C. V. Raman Hostel, AryaBhatta Hostel, Homi Jehangir Bhabha Hostel, Sir J.C. Bose Hostel and Sister Nivedita. These cater to the requirements of all the students residing within the campus.</p>
+
+              <!-- Information about common facilities -->
+              <p>Every hostel has its own common room and gymnasium. Additionally every hostel subscribes to the latest magazines and newspapers for the residents.</p>
+
+              <!-- Information about connectivity -->
+              <p>The hostels are connected to the campus via the campus wide wi-fi network and LAN which enables the residents to browse the internet and access the online library resources for their academic and research related work.</p>
+            </section>
+
+            <!-- Sidebar container - Loaded dynamically -->
+            <aside id="sidebar-widget" class="sidebar-widget-container">
+              <!-- Sidebar content loaded dynamically -->
+            </aside>
+          </section>
+        </main>
+
+        <!-- Footer container - Loaded dynamically -->
+        <div id="footer"></div>
+      </div>
+    </div>
+  </body>
+</html>

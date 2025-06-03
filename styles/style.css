@@ -1,0 +1,1898 @@
+/**
+ * DTU Hostel Website Main Stylesheet
+ * 
+ * This stylesheet contains all the styling for the DTU Hostel Management website.
+ * It follows a mobile-first responsive design approach with breakpoints at:
+ * - Mobile: up to 767px
+ * - Tablet: 768px to 991px
+ * - Desktop: 992px and up
+ * 
+ * Contents:
+ * 1. Reset & Base
+ * 2. Layout Components (Page wrapper, content container)
+ * 3. Header Components (Logos, navigation)
+ * 4. Content Components (Main content, sidebar)
+ * 5. UI Components (Slideshow, buttons, forms)
+ * 6. Footer Components
+ * 7. Page-specific Styles
+ * 8. Responsive Design
+ * 
+ * Author: DTU Web Development Team
+ * Last Updated: 21 May 2025
+ */
+
+/* ============================================================
+   1. RESET & BASE STYLES
+   ============================================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+  background-color: #f0f0f0; /* subtle off-white for sides */
+  font-family: Arial, sans-serif;
+}
+
+/* ============================================================
+   2. LAYOUT COMPONENTS
+   ============================================================ */
+/* FULL PAGE WRAPPER - fills entire viewport */
+.page-wrapper {
+  min-height: 100vh;
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+}
+
+/* MAIN CONTENT CONTAINER */
+.wrapper {
+  background-color: #fff;
+  max-width: 1200px;
+  width: 100%;
+  box-shadow: 0 0 15px rgba(0,0,0,0.05);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* MAIN AREA */
+main {
+  flex: 1;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 0 20px;
+}
+
+/* Content wrapper - make it flex and take full height */
+.content-wrapper {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  background-color: #f9f9f9;
+  padding: 20px 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.main-content,
+.main-content.content-page,
+.hostels-content {
+  background-color: white;
+  padding: 20px 20px 30px 20px; /* Slightly reduced padding on small screens */
+  color: #666666;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  min-width: 0; /* Allow content to shrink if needed */
+  overflow-wrap: break-word; /* Prevent overflow */
+  width: 100%;
+}
+
+/* ---------------- PAGE TITLE SECTION ---------------- */
+.page-title-section {
+  background-color: white;
+  padding: 15px 30px;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 0; /* Remove bottom margin */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.page-title-section h1 {
+  font-size: 28px;
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 10px 0;
+  padding: 0;
+}
+
+.page-title-section h2 {
+  font-size: 22px;
+  font-weight: 500;
+  color: #444;
+  margin: 10px 0 0 0;
+}
+
+.page-title-section h3 {
+  font-size: 18px;
+  font-weight: 500;
+  color: #555;
+  margin: 5px 0 0 0;
+}
+
+/* ============================================================
+   3. HEADER COMPONENTS
+   ============================================================ */
+/* Orange bar */
+.yellow-bar {
+  background-color: #e67e22; /* Brighter orange color from screenshot */
+  color: white;
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 18px;
+  margin-top: 0;
+  width: 100%;
+}
+
+/* Top white section */
+.top-bar {
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 30px;
+  flex-wrap: wrap;
+}
+
+.logo-title {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.logo {
+  height: 80px; /* Slightly smaller logo */
+}
+
+.university-title h1 {
+  color: #66b3ff;
+  font-size: 24px;
+  margin: 0;
+}
+
+.university-title h2 {
+  color: #666;
+  margin: 2px 0;
+  font-size: 18px;
+}
+
+.university-title p:not(.accreditation) {
+  color: #666;
+  margin: 2px 0;
+  font-size: 14px;
+}
+
+.accreditation {
+  color: #800000;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.social-icons a {
+  display: inline-block;
+  margin-left: 15px;
+}
+
+.social-icons img {
+  height: 30px;
+  transition: opacity 0.3s ease;
+}
+
+.social-icons a:hover img {
+  opacity: 0.7;
+}
+/* ============================================================
+   NAVIGATION COMPONENTS
+   ============================================================ */
+/* Main navigation bar */
+.navbar {
+  background-color: #0099cc; /* Brighter blue color from screenshot */
+  padding: 0;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1000;
+  overflow: visible;
+  width: 100%;
+  line-height: 1;
+}
+
+.navbar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  overflow: visible;
+  white-space: nowrap;
+  line-height: 0;
+  width: 100%;
+}
+
+.navbar li {
+  position: relative;
+  white-space: nowrap;
+  line-height: 1;
+  margin: 0;
+  padding: 0;
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  flex: 1;
+  text-align: center;
+}
+
+.navbar li:last-child {
+  border-right: none;
+}
+
+/* Special handling for menu items */
+.navbar li:nth-child(2), /* About */
+.navbar li:nth-child(3) { /* Fee Structure */
+  flex: 0.8;
+}
+
+.navbar li:nth-child(4), /* Boys Hostels */
+.navbar li:nth-child(5) { /* Girls Hostels */
+  flex: 0.9;
+}
+
+/* Special handling for the longer "Hostels' Complaints" menu item */
+.navbar li:nth-child(6) {
+  flex: 1.8; /* Increase from 1.5 to 1.8 to give more room */
+}
+
+/* Important Performa item - add more space */
+.navbar li:nth-child(7) {
+  flex: 1.2;
+}
+
+/* Home item can be smaller */
+.navbar li:first-child {
+  flex: 0.5; /* Slightly smaller than before */
+}
+
+/* Make Contact Us and Feedback Form slightly smaller */
+.navbar li:nth-child(8), 
+.navbar li:nth-child(9) {
+  flex: 0.9;
+}
+
+.navbar a {
+  display: block;
+  padding: 10px 3px; /* Reduce horizontal padding further */
+  background-color: transparent;
+  color: white;
+  text-decoration: none;
+  font-size: 12px; /* Reduce font size slightly */
+  transition: background-color 0.3s;
+  text-align: center;
+  width: 100%;
+  margin: 0;
+  position: relative;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  line-height: 1.5;
+  white-space: nowrap;
+  hyphens: auto; /* Enable hyphenation */
+}
+
+.navbar a:hover,
+.navbar li.dropdown:hover > a {
+  background-color: #0077aa; /* Slightly darker blue on hover */
+  box-shadow: none;
+}
+
+.navbar li.dropdown > a::after {
+  content: " ▼";
+  font-size: 8px; /* smaller dropdown indicator */
+  margin-left: 3px; /* less space before indicator */
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #004a80;
+  border-radius: 0 0 6px 6px;
+  min-width: 200px;
+  max-width: 280px; /* Add maximum width */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+  z-index: 1001;
+  margin: 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box;
+  border-top: 2px solid #00345a;
+  flex-direction: column !important; /* Force vertical display */
+}
+
+.dropdown-menu li {
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  list-style: none;
+  box-sizing: border-box;
+  width: 100%; /* Full width of parent */
+  border-right: none;
+}
+
+.dropdown-menu li a {
+  display: block;
+  padding: 12px 15px;
+  background-color: #004a80;
+  color: white;
+  font-size: 12px;
+  text-decoration: none;
+  white-space: normal; /* Allow text to wrap */
+  border-radius: 0;
+  margin: 0;
+  border: none;
+  box-sizing: border-box;
+  outline: none;
+  line-height: 1.3;
+  transition: background-color 0.3s;
+  width: 100%; /* Full width */
+  text-align: left;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+.dropdown-menu li a:hover {
+  background-color: #002f4d;
+}
+
+.dropdown-menu li:last-child a {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 12px;
+}
+
+.navbar li.dropdown {
+  position: relative;
+}
+
+/* Make some dropdown menus align better */
+.navbar li.dropdown:nth-child(n+5) .dropdown-menu {
+  right: 0;
+  left: auto;
+}
+
+.navbar li.dropdown:hover > .dropdown-menu {
+  display: block;
+  opacity: 1;
+  pointer-events: auto;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Set a delay for the dropdown disappearing */
+.navbar li.dropdown:hover > .dropdown-menu {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Adjust specific dropdown menu widths */
+.navbar li:nth-child(3) .dropdown-menu,
+.navbar li:nth-child(4) .dropdown-menu,
+.navbar li:nth-child(5) .dropdown-menu {
+  width: 320px; /* Wider for longer text items */
+  max-width: 320px;
+}
+
+/* Make specific dropdown items more aligned */
+.navbar li:nth-child(4) .dropdown-menu li a,
+.navbar li:nth-child(5) .dropdown-menu li a {
+  font-size: 11px; /* Slightly smaller font for very long names */
+  padding: 10px 12px;
+}
+
+/* Adjust padding for specific items */
+.navbar li:nth-child(6) a,
+.navbar li:nth-child(7) a {
+  padding-left: 5px;
+  padding-right: 5px;
+  font-size: 11.5px; /* Slightly smaller font */
+}
+
+/* ============================================================
+   UI COMPONENTS - SLIDESHOW
+   ============================================================ */
+/* Slideshow container */
+.slideshow-container {
+  background-color: white;
+  padding: 15px;
+  margin: 15px auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  max-width: 730px; /* Adjusted to better match the 700px image width + padding */
+  width: 100%;
+}
+
+/* ---------------- SLIDESHOW ---------------- */
+.slideshow {
+  position: relative;
+  width: 100%;
+  max-height: 300px; /* Match the image height */
+  overflow: hidden;
+  margin: 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.slides {
+  display: none;
+  position: relative;
+  width: 100%;
+  height: 300px; /* Set fixed height to match image ratio */
+  transition: opacity 1s;
+  opacity: 0;
+  overflow: hidden;
+}
+
+.slides.active {
+  display: block;
+  opacity: 1;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.slides img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover; /* Cover ensures the image fills the container */
+  object-position: center; /* Center the image */
+}
+
+.slide-number {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: bold;
+  z-index: 10;
+}
+
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  padding: 16px;
+  background-color: rgba(0, 0, 0, 0.3);
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.prev {
+  left: 15px;
+}
+
+.next {
+  right: 15px;
+}
+
+/* SLIDE BUTTONS */
+.slide-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 15px;
+  margin-bottom: 0;
+}
+
+.slide-buttons .slide-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 4px;
+  background-color: #0066a1;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  padding: 0;
+}
+
+.slide-buttons .slide-btn:hover,
+.slide-buttons .slide-btn.active {
+  background-color: #004a80;
+  transform: scale(1.1);
+}
+
+/* FADE IN ANIMATION */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ---------------- HOSTELS SECTION ---------------- */
+.hostels-header {
+  background-color: white;
+  padding: 15px 30px;
+  font-weight: 600;
+  font-size: 28px;
+  color: #333;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.hostels-section {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+  padding: 20px 30px;
+  background-color: #f9f9f9;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.hostels-content {
+  background-color: white;
+  padding: 20px 30px 30px 30px;
+  color: #666666;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 500;
+  flex: 2;
+  min-width: 0; /* Allow content to shrink if needed */
+  overflow-wrap: break-word; /* Prevent overflow */
+}
+
+.hostels-content h2 {
+  font-size: 22px;
+  font-weight: 500;
+  color: #444;
+  margin: 20px 0 10px 0;
+}
+
+.hostels-content h3 {
+  font-size: 18px;
+  font-weight: 500;
+  color: #555;
+  margin: 15px 0 10px 0;
+}
+
+.hostels-content p,
+.hostels-content ol {
+  margin-bottom: 15px;
+}
+
+.hostels-content p.small-text {
+  font-size: 14px;
+  font-weight: normal;
+  color: #666666;
+}
+
+.hostels-content .section-title {
+  font-size: 18px;
+  color: #1e3d7a;
+  font-weight: 600;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.hostels-content ol {
+  padding-left: 40px;
+  font-weight: 600;
+  color: #666666;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.hostels-content ol li {
+  margin-bottom: 6px;
+}
+
+/* ============================================================
+   SIDEBAR COMPONENTS
+   ============================================================ */
+/* Sidebar container */
+.sidebar-widget-container {
+  margin-top: 20px;
+  padding: 0 15px;
+  box-sizing: border-box;
+  flex: 1 1 100%;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: fit-content;
+}
+
+.sidebar-widget {
+  background-color: white;
+  padding: 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-family: Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+.sidebar-widget h2 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 8px;
+  color: #333;
+}
+
+.search-widget {
+  margin-bottom: 0;
+}
+
+.search-widget h2 {
+  margin-bottom: 10px;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.recent-posts-widget {
+  margin-top: 0;
+}
+
+.recent-posts ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.recent-posts li {
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px dotted #eee;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.recent-posts a {
+  text-decoration: none;
+  color: #0073aa;
+  font-size: 14px;
+  display: block;
+  margin-bottom: 5px;
+  font-weight: normal;
+}
+
+.recent-posts a:hover {
+  color: #005177;
+  text-decoration: none;
+}
+
+/* Date styling in recent posts */
+.recent-posts .post-date {
+  color: #777;
+  font-size: 12px;
+  display: block;
+  margin-top: 2px;
+}
+
+/* Main content styling */
+.content-wrapper .main-content {
+  flex: 2;
+  background-color: white;
+  padding: 20px 30px 30px 30px;
+  color: #666666;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 500;
+  min-width: 0; /* Allow content to shrink if needed */
+  overflow-wrap: break-word; /* Prevent overflow */
+}
+
+.content-wrapper .main-content h2 {
+  font-size: 22px;
+  font-weight: 500;
+  color: #444;
+  margin: 20px 0 10px 0;
+}
+
+.content-wrapper .main-content h3 {
+  font-size: 18px;
+  font-weight: 500;
+  color: #555;
+  margin: 15px 0 10px 0;
+}
+
+/* ============================================================
+   FOOTER COMPONENTS
+   ============================================================ */
+/* Main footer */
+footer.footer {
+  background-color: #2c2c2c;
+  color: #999999;
+  padding: 20px 30px;
+  font-size: 14px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin-top: auto;
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.footer-left {
+  flex: 1 1 auto;
+  min-width: 300px;
+}
+
+.footer-top {
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.footer-top a.footer-link {
+  color: #999999;
+  text-decoration: none;
+  margin-left: 10px;
+}
+
+.footer-top a.footer-link:hover {
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  font-size: 12px;
+  margin-top: 10px;
+  flex: 1 1 100%;
+  text-align: center;
+  color: #777777;
+}
+
+.footer-right {
+  text-align: right;
+  min-width: 260px;
+  font-size: 15px;
+  color: #ccc;
+  line-height: 1.7;
+  margin-left: 30px;
+}
+
+/* Additional styling for tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+table th, table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* Styling for hostel person and building images */
+.hostel-person-img, .hostel-building-img {
+  max-width: 100%;
+  display: block;
+  margin: 20px auto;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.hostel-person-img {
+  max-height: 300px;
+  object-fit: contain;
+}
+
+/* Styling for download buttons */
+.download-button {
+  display: inline-block;
+  background-color: #0066a1;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 3px;
+  text-decoration: none;
+  margin-left: 10px;
+  font-size: 14px;
+}
+
+.download-button:hover {
+  background-color: #004a80;
+}
+
+/* ============================================================
+   FORM COMPONENTS
+   ============================================================ */
+/* Form group - individual form fields */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #444;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="url"],
+.form-group textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 15px;
+  transition: border-color 0.3s;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group input[type="url"]:focus,
+.form-group textarea:focus {
+  border-color: #0066a1;
+  outline: none;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 150px;
+  line-height: 1.5;
+}
+
+.form-group input[type="checkbox"] {
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+.submit-button {
+  background-color: #0066a1;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.submit-button:hover {
+  background-color: #004a80;
+}
+
+/* ---------------- MISC ---------------- */
+.text-center {
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Styling for hostel lists */
+.hostel-list {
+  list-style-position: inside;
+  padding-left: 0;
+  margin: 15px 0;
+}
+
+.hostel-list li {
+  padding: 8px 0;
+  border-bottom: 1px solid #f0f0f0;
+  font-weight: 500;
+}
+
+.hostel-list li:last-child {
+  border-bottom: none;
+}
+
+/* Styling for numbered hostel lists in a container */
+.hostel-list-container {
+  width: 100%;
+  max-width: 700px;
+  padding: 30px;
+  margin: 0 auto 30px auto;
+  background-color: #fff;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  border-radius: 4px;
+}
+
+.hostel-list-numbered {
+  list-style-position: outside;
+  padding-left: 30px;
+  margin: 10px 0;
+}
+
+.hostel-list-numbered li {
+  padding: 10px 0;
+  border-bottom: 1px solid #f0f0f0;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.hostel-list-numbered li:last-child {
+  border-bottom: none;
+}
+
+/* Styling for fee links */
+.fee-links {
+  list-style-type: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.fee-links li {
+  margin-bottom: 15px;
+  padding-left: 5px;
+}
+
+.fee-links a {
+  display: inline-block;
+  color: #0066a1;
+  font-weight: 500;
+  text-decoration: none;
+  margin-right: 5px;
+}
+
+.fee-links a:hover {
+  text-decoration: underline;
+  color: #004a80;
+}
+
+/* Comment section styling */
+.comment-section {
+  margin-bottom: 40px;
+}
+
+/* Leave a Reply section styling */
+.leave-reply {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #eee;
+}
+
+.leave-reply h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Comment form styling */
+.comment-form-section {
+  margin-top: 10px;
+}
+
+.comment-notes {
+  margin-bottom: 20px;
+  font-style: italic;
+  color: #666;
+}
+
+/* Chief Warden Message styling */
+.chief-warden-message {
+  background-color: white;
+  padding: 30px;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  margin-bottom: 30px;
+}
+
+.chief-warden-message h2 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #0099cc;
+}
+
+.chief-warden-message p {
+  margin-bottom: 20px;
+  line-height: 1.8;
+  font-size: 16px;
+  color: #444;
+}
+
+.signature-block {
+  margin-top: 30px;
+  font-weight: 500;
+  color: #333;
+}
+
+/* Content page improvements */
+.content-page {
+  padding: 0;
+}
+
+.content-page .main-content {
+  padding: 30px;
+}
+
+.content-page h1 {
+  font-size: 28px;
+  color: #333;
+  margin: 0 0 20px 0;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #0099cc;
+}
+
+.content-page h2 {
+  font-size: 22px;
+  color: #333;
+  margin: 25px 0 15px 0;
+}
+
+.content-page h3 {
+  font-size: 18px;
+  color: #444;
+  margin: 20px 0 10px 0;
+}
+
+.content-page p {
+  margin-bottom: 15px;
+  line-height: 1.8;
+}
+
+.content-page ul, 
+.content-page ol {
+  margin-bottom: 20px;
+  margin-left: 20px;
+  padding-left: 20px;
+}
+
+.content-page li {
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+/* Table improvements */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 25px 0;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+table th, table td {
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+  color: #333;
+}
+
+table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+table tr:hover {
+  background-color: #f0f0f0;
+}
+
+/* Email links */
+a.email-link {
+  color: #0066a1;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+a.email-link:hover {
+  color: #004a80;
+  text-decoration: underline;
+}
+
+/* Contact Page Styling */
+.contact-info {
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  margin-bottom: 30px;
+}
+
+.contact-person {
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.contact-person h3 {
+  color: #0066a1;
+  margin-bottom: 5px;
+}
+
+.contact-person p {
+  margin: 5px 0;
+}
+
+.note {
+  font-style: italic;
+  color: #666;
+  font-size: 0.9em;
+}
+
+.address-section {
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+address {
+  font-style: normal;
+  line-height: 1.6;
+  margin: 10px 0;
+}
+
+.web-queries-section {
+  margin-bottom: 20px;
+}
+
+.website-link {
+  color: #0066a1;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.website-link:hover {
+  color: #004a80;
+  text-decoration: underline;
+}
+
+/* Warden Council Info */
+.warden-council-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  background: linear-gradient(90deg, #e3f2fd 0%, #f9f9f9 100%);
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,153,204,0.07);
+  padding: 28px 32px 18px 32px;
+  margin: 32px 0 36px 0;
+  align-items: flex-start;
+  border-left: 6px solid #0099cc;
+}
+.warden-council-info .contact-person {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0,153,204,0.08);
+  padding: 18px 24px 14px 24px;
+  min-width: 240px;
+  flex: 1 1 260px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border-left: 4px solid #0099cc;
+  margin-bottom: 0;
+  border-bottom: none;
+}
+.warden-council-info .contact-person h3 {
+  font-size: 18px;
+  color: #0077aa;
+  margin-bottom: 6px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+}
+.warden-council-info .contact-person p {
+  margin: 2px 0 0 0;
+  font-size: 15px;
+  color: #444;
+}
+.warden-council-info .contact-person .email-link {
+  margin-top: 4px;
+  font-size: 15px;
+  color: #0066a1;
+  text-decoration: none;
+  font-weight: 500;
+}
+.warden-council-info .contact-person .email-link:hover {
+  color: #004a80;
+  text-decoration: underline;
+}
+
+/* Fix for sidebar in all pages */
+@media (min-width: 768px) {
+  .content-wrapper {
+    padding: 20px 30px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 20px;
+  }
+  
+  .main-content,
+  .main-content.content-page,
+  .hostels-content {
+    flex: 1 1 60%;
+    padding: 20px 30px 30px 30px;
+  }
+  
+  .sidebar-widget-container {
+    flex: 0 0 300px;
+    max-width: 300px;
+    min-width: 250px;
+    position: sticky;
+    top: 20px;
+    align-self: flex-start;
+    margin-left: 0;
+    margin-top: 0;
+  }
+}
+
+@media (min-width: 992px) {
+  .content-wrapper {
+    flex-wrap: nowrap;
+  }
+  
+  .main-content {
+    flex: 1 1 auto;
+  }
+  
+  .sidebar-widget-container {
+    margin-left: auto;
+  }
+}
+
+/* Fix page titles */
+.content-page h1 {
+  border-bottom: 2px solid #0099cc;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+/* Facilities list in Hostel Facilities page */
+.facilities-list {
+  margin: 20px 0;
+  padding-left: 30px;
+}
+
+.facilities-list li {
+  margin-bottom: 8px;
+  padding-left: 10px;
+}
+
+/* Numbered list for hostels */
+.numbered-list {
+  margin: 15px 0;
+  padding-left: 30px;
+}
+
+.numbered-list li {
+  margin-bottom: 8px;
+  padding-left: 10px;
+}
+
+.hostels-lists {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.boys-hostels, .girls-hostels {
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+/* Payment Procedure Styling */
+.payment-procedure {
+  background-color: white;
+  padding: 20px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+.payment-procedure h3 {
+  margin: 20px 0 10px 0;
+  color: #333;
+}
+
+.payment-steps {
+  margin: 15px 0;
+  padding-left: 25px;
+}
+
+.payment-steps > li {
+  margin-bottom: 15px;
+}
+
+.nested-list {
+  margin: 10px 0;
+  padding-left: 25px;
+}
+
+.nested-list li {
+  margin-bottom: 5px;
+}
+
+.note-box {
+  background-color: #f9f9f9;
+  padding: 15px;
+  margin-top: 20px;
+  border-left: 4px solid #0099cc;
+}
+
+/* Complaints and Grievances styling */
+.complaint-types {
+  margin: 15px 0;
+  padding-left: 25px;
+}
+
+.complaint-types li {
+  margin-bottom: 8px;
+  padding-left: 5px;
+}
+
+.complaint-steps {
+  margin: 20px 0;
+  padding-left: 25px;
+}
+
+.complaint-steps li {
+  margin-bottom: 20px;
+  padding-left: 5px;
+}
+
+.complaint-steps li strong {
+  color: #0066a1;
+}
+
+/* Feedback Form styling */
+.feedback-section {
+  background-color: white;
+  padding: 20px;
+  margin-bottom: 30px;
+}
+
+.feedback-intro {
+  margin-bottom: 30px;
+}
+
+.feedback-form {
+  margin-top: 20px;
+}
+
+.checkbox-group {
+  display: flex;
+  align-items: flex-start;
+}
+
+.checkbox-group input {
+  margin-top: 3px;
+  margin-right: 10px;
+}
+
+/* About dropdown menu fixes - unified font and size */
+.navbar li.dropdown:nth-child(2) .dropdown-menu li a {
+  font-size: 14px;
+  padding: 12px 18px;
+  white-space: normal;
+  line-height: 1.4;
+}
+
+.navbar li.dropdown:nth-child(2) .dropdown-menu {
+  min-width: 260px;
+  max-width: 340px;
+  width: auto;
+}
+
+/* Administrative Overview Box */
+.admin-overview-box {
+  background-color: #fff;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  padding: 28px 32px;
+  margin: 30px 0 0 0;
+  max-width: 800px;
+}
+.admin-overview-list {
+  margin: 0;
+  padding-left: 32px;
+  list-style-type: disc;
+}
+.admin-overview-list li {
+  margin-bottom: 18px;
+  font-size: 16px;
+  color: #444;
+  line-height: 1.7;
+}
+
+/* UGC Regulations Box */
+.ugc-regulations-box {
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  padding: 32px 36px;
+  margin: 30px 0 0 0;
+  max-width: 900px;
+}
+.ugc-regulations-box p {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 18px;
+}
+.ugc-ragging-list {
+  margin: 18px 0 28px 0;
+  padding-left: 32px;
+}
+.ugc-ragging-list li {
+  margin-bottom: 14px;
+  font-size: 15.5px;
+  color: #444;
+  line-height: 1.7;
+}
+.ugc-ragging-punishments {
+  margin: 18px 0 0 0;
+  padding-left: 32px;
+}
+.ugc-ragging-punishments > li {
+  margin-bottom: 16px;
+  font-size: 15.5px;
+  color: #444;
+  line-height: 1.7;
+}
+.ugc-ragging-punishments ol {
+  margin-top: 10px;
+  padding-left: 24px;
+}
+.ugc-ragging-punishments ol li {
+  margin-bottom: 10px;
+  font-size: 15px;
+}
+
+/* Important Performa Box */
+.important-performa-box {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  padding: 32px 36px 28px 36px;
+  margin: 30px 0 0 0;
+  max-width: 700px;
+}
+.important-performa-box h2 {
+  margin-top: 0;
+  margin-bottom: 18px;
+  font-size: 22px;
+  color: #333;
+}
+.important-performa-box p {
+  margin-bottom: 18px;
+  font-size: 15.5px;
+  color: #444;
+}
+.performa-links {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-top: 10px;
+}
+.performa-links .download-button {
+  width: fit-content;
+  min-width: 260px;
+  font-size: 15px;
+  padding: 12px 18px;
+  text-align: left;
+}
+
+/* End of CSS */
+
+/* ============================================================
+   RESPONSIVE DESIGN
+   ============================================================ */
+/* 
+ * Mobile-First Responsive Design Approach
+ * 
+ * Breakpoints:
+ * - Small devices (phones): up to 767px
+ * - Medium devices (tablets): 768px to 991px
+ * - Large devices (desktops): 992px and up
+ */
+
+/* Base styles are already mobile-friendly */
+
+/* -------------------- MOBILE MENU TOGGLE -------------------- */
+/* Mobile menu toggle button - hidden by default for desktop */
+.mobile-menu-toggle {
+  display: none; /* Hide by default on all screen sizes */
+  padding: 15px;
+  background-color: #0099cc;
+  color: white;
+  text-align: left;
+  width: 100%;
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+}
+
+.mobile-menu-toggle::after {
+  content: "☰";
+  position: absolute;
+  right: 15px;
+}
+
+/* -------------------- TABLET STYLES (768px and up) -------------------- */
+@media (min-width: 768px) and (max-width: 991px) {
+  /* Header & Logo adjustments */
+  .logo {
+    height: 70px;
+  }
+  
+  .university-title h1 {
+    font-size: 22px;
+  }
+  
+  .university-title h2 {
+    font-size: 16px;
+  }
+  
+  /* Navigation adjustments */
+  .navbar a {
+    font-size: 11px;
+    padding: 10px 2px;
+  }
+  
+  /* Content layout adjustments */
+  .content-wrapper {
+    padding: 15px;
+  }
+  
+  .main-content,
+  .main-content.content-page,
+  .hostels-content {
+    padding: 20px;
+  }
+  
+  /* Sidebar adjustments */
+  .sidebar-widget-container {
+    flex: 0 0 240px;
+    max-width: 240px;
+  }
+  
+  /* Slideshow adjustments */
+  .slideshow-container {
+    max-width: 650px;
+  }
+  
+  .prev, .next {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+  
+  /* Footer adjustments */
+  .footer-right {
+    min-width: 220px;
+    font-size: 14px;
+  }
+}
+
+/* -------------------- MOBILE STYLES (up to 767px) -------------------- */
+@media (max-width: 767px) {
+  /* Header adjustments */
+  .top-bar {
+    padding: 10px 15px;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .logo-title {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+  }
+  
+  .university-title {
+    text-align: center;
+  }
+  
+  .university-title h1 {
+    font-size: 20px;
+  }
+  
+  .university-title h2 {
+    font-size: 15px;
+  }
+  
+  .social-icons {
+    margin-top: 15px;
+  }
+  
+  /* Navigation adjustments - mobile menu */
+  .navbar {
+    position: relative;
+    overflow: visible;
+  }
+  
+  .navbar ul {
+    flex-direction: column;
+    transition: max-height 0.5s ease;
+    max-height: 53px; /* Height of first menu item */
+    overflow: hidden;
+  }
+  
+  .navbar ul.expanded {
+    max-height: 1000px; /* Large enough to show all items */
+  }
+  
+  .navbar li {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    text-align: left;
+  }
+  
+  .navbar a {
+    padding: 15px;
+    font-size: 14px;
+  }
+  
+  .navbar li.dropdown > a::after {
+    content: " ▼";
+    float: right;
+  }
+  
+  .dropdown-menu {
+    position: static;
+    width: 100%;
+    max-width: 100%;
+    box-shadow: none;
+    opacity: 1;
+    display: none;
+    pointer-events: auto;
+    border-top: none;
+    margin: 0;
+  }
+  
+  .dropdown-menu li a {
+    padding-left: 30px;
+    background-color: #003a66;
+  }
+  
+  /* Show mobile menu toggle button only on mobile */
+  .mobile-menu-toggle {
+    display: block;
+  }
+  
+  /* Content adjustments */
+  .content-wrapper {
+    padding: 10px;
+    flex-direction: column;
+  }
+  
+  .main-content,
+  .main-content.content-page,
+  .hostels-content {
+    padding: 15px;
+    flex: 1 1 100%;
+    width: 100%;
+  }
+  
+  .page-title-section {
+    padding: 10px 15px;
+  }
+  
+  .page-title-section h1 {
+    font-size: 24px;
+  }
+  
+  /* Sidebar adjustments */
+  .sidebar-widget-container {
+    flex: 1 1 100%;
+    max-width: 100%;
+    margin-top: 20px;
+    padding: 0;
+    position: static;
+  }
+  
+  /* Slideshow adjustments */
+  .slideshow-container {
+    padding: 10px;
+    margin: 10px auto;
+  }
+  
+  .slideshow {
+    max-height: 240px; /* Smaller height for mobile */
+  }
+  
+  .slides {
+    height: 240px;
+  }
+  
+  .prev, .next {
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
+    padding: 8px;
+  }
+  
+  .slide-buttons .slide-btn {
+    width: 26px;
+    height: 26px;
+    font-size: 12px;
+  }
+  
+  /* Table adjustments */
+  table {
+    display: block;
+    overflow-x: auto;
+  }
+  
+  table th, table td {
+    padding: 8px 10px;
+    font-size: 14px;
+  }
+  
+  /* Footer adjustments */
+  footer.footer {
+    padding: 15px;
+    flex-direction: column;
+  }
+  
+  .footer-right {
+    text-align: left;
+    margin-left: 0;
+    margin-top: 15px;
+  }
+  
+  .footer-left, .footer-right {
+    width: 100%;
+    min-width: 0;
+  }
+  
+  /* Form adjustments */
+  .form-group input[type="text"],
+  .form-group input[type="email"],
+  .form-group input[type="url"],
+  .form-group textarea {
+    padding: 10px;
+    font-size: 14px;
+  }
+  
+  .submit-button {
+    width: 100%;
+    padding: 10px;
+  }
+  
+  /* Hostel section adjustments */
+  .hostels-section {
+    flex-direction: column;
+    padding: 15px;
+  }
+  
+  .hostels-header {
+    font-size: 24px;
+    padding: 10px 15px;
+  }
+  
+  /* Contact page adjustments */
+  .warden-council-info {
+    padding: 15px;
+    gap: 15px;
+  }
+  
+  .warden-council-info .contact-person {
+    padding: 15px;
+  }
+  
+  /* Special campus view fixes */
+  .hostel-building-img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+/* -------------------- SMALL PHONE STYLES (up to 480px) -------------------- */
+@media (max-width: 480px) {
+  .university-title h1 {
+    font-size: 18px;
+  }
+  
+  .university-title h2 {
+    font-size: 14px;
+  }
+  
+  .page-title-section h1 {
+    font-size: 22px;
+  }
+  
+  .slideshow {
+    max-height: 200px;
+  }
+  
+  .slides {
+    height: 200px;
+  }
+  
+  .slide-buttons .slide-btn {
+    width: 24px;
+    height: 24px;
+    font-size: 11px;
+  }
+  
+  .main-content h1 {
+    font-size: 22px;
+  }
+  
+  .main-content h2 {
+    font-size: 18px;
+  }
+  
+  .main-content h3 {
+    font-size: 16px;
+  }
+  
+  .prev, .next {
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
+    padding: 6px;
+  }
+} 
