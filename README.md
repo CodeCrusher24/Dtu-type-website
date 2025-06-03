@@ -2,7 +2,7 @@
 
 > A frontend prototype for Delhi Technological University's Hostel Management Department
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/roaring-meringue-aac216/deploy-status)](https://roaring-meringue-aac216.netlify.app/)
+[![Build Status](https://badges.netlify.com/api/roaring-meringue-aac216.svg?branch=master)](https://app.netlify.com/sites/roaring-meringue-aac216/deploys)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 ## 📋 Overview
