@@ -7,33 +7,7 @@ This project is a **frontend prototype** created for the Hostel Management Depar
 
 ---
 
-## 📁 Project Structure
-
-/
-├── index.html # Homepage
-├── README.md # This file
-├── components/ # Reusable HTML components
-│ ├── footer.html
-│ ├── header.html
-│ ├── navbar.html
-│ ├── sidebar-widget.html
-│ └── slideshow.html
-├── documents/ # Downloadable documents/forms
-├── images/ # Image assets
-├── pages/ # Website content pages
-│ ├── about-us/
-│ ├── fees/
-│ ├── hostels/
-│ │ ├── boys/
-│ │ └── girls/
-│ └── utility/
-├── scripts/ # JavaScript files
-│ ├── script.js
-│ ├── fix-sidebar.js
-│ ├── header-loader.js
-│ └── update-page-titles.js
-└── styles/
-└── style.css
+<pre> ## 📁 Project Structure ```text / ├── index.html # Homepage ├── README.md # This file ├── components/ # Reusable HTML components │ ├── footer.html │ ├── header.html │ ├── navbar.html │ ├── sidebar-widget.html │ └── slideshow.html ├── documents/ # Downloadable documents/forms ├── images/ # Image assets ├── pages/ # Website content pages │ ├── about-us/ │ ├── fees/ │ ├── hostels/ │ │ ├── boys/ │ │ └── girls/ │ └── utility/ ├── scripts/ # JavaScript files │ ├── script.js │ ├── fix-sidebar.js │ ├── header-loader.js │ └── update-page-titles.js ├── styles/ │ └── style.css ``` </pre>
 
 
 ---
