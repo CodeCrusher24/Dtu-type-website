@@ -132,5 +132,4 @@ The website is compatible with:
 - Mobile browsers (iOS Safari, Chrome for Android)
 
 ## AUTHORS
-DTU Web Development Team
-Delhi Technological University, Delhi 
+Parag Kumar 
