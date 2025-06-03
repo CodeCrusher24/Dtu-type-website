@@ -2,8 +2,6 @@
 
 > A frontend prototype for Delhi Technological University's Hostel Management Department
 
-[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-
 ## 📋 Overview
 
 This is a **frontend prototype** created for the Hostel Management Department of **Delhi Technological University (DTU)**. It serves as a **sample submission** and is not an official DTU website. The project demonstrates frontend capabilities using **vanilla HTML, CSS, and JavaScript**.
