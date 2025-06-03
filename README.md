@@ -1,6 +1,6 @@
 # DTU Hostel Management Website (Prototype)
 
-> **Last Updated**: May 21, 2025  
+> **Last Updated**: June 3, 2025  
 > **Live Demo**: [roaring-meringue-aac216.netlify.app](https://roaring-meringue-aac216.netlify.app/)
 
 This project is a **frontend prototype** created for the Hostel Management Department of **Delhi Technological University (DTU)** as part of a **sample submission**. It is **not an official DTU website**, and it's currently not in use by DTU. It was created to demonstrate frontend capabilities using **standard HTML, CSS, and JavaScript only**.
