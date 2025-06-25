@@ -312,7 +312,6 @@ main {
   font-size: 8px; /* smaller dropdown indicator */
   margin-left: 3px; /* less space before indicator */
 }
-
 .dropdown-menu {
   display: none;
   position: absolute;
@@ -1894,5 +1893,60 @@ address {
     height: 32px;
     font-size: 16px;
     padding: 6px;
+  }
+}
+
+/* ===============================
+   ANNOUNCEMENT MARQUEE STYLES
+   =============================== */
+.announcement-marquee-wrapper {
+  width: 100%;
+  background: linear-gradient(90deg, #ff512f 0%, #dd2476 100%);
+  box-shadow: 0 4px 16px 0 rgba(221,36,118,0.15);
+  padding: 0;
+  margin: 0 0 18px 0;
+  position: relative;
+  z-index: 50;
+  overflow: hidden;
+  border-radius: 0 0 16px 16px;
+}
+.announcement-marquee {
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  position: relative;
+  height: 48px;
+  display: flex;
+  align-items: center;
+}
+.announcement-marquee span {
+  display: inline-block;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.02em;
+  padding-left: 100%;
+  animation: marquee-scroll 18s linear infinite;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.18);
+}
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@media (max-width: 600px) {
+  .announcement-marquee {
+    height: 38px;
+  }
+  .announcement-marquee span {
+    font-size: 1rem;
+    padding-left: 100%;
+  }
+  .announcement-marquee-wrapper {
+    border-radius: 0 0 10px 10px;
   }
 } 
