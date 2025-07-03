@@ -1,23 +1,34 @@
 <!-- 
   Footer Component
-  
-  Contains copyright information, links to main university website,
-  disclaimer page, and hostel office contact information.
+  Redesigned for modern, pleasant look with clear separation and spacing.
 -->
-<footer class="footer">
-  <!-- Left section with copyright and links -->
-  <div class="footer-left">
-    <span class="footer-top">Copyright © 2014 - <span id="current-year">2025</span>, Delhi Technological University .</span>
-    <a href="https://dtu.ac.in" class="footer-link">dtu.ac.in</a>
-    <a href="/pages/disclaimer.html" class="footer-link">Disclaimer</a>
-  </div>
-  
-  <!-- Right section with address details -->
-  <div class="footer-right" style="text-align: right; min-width: 260px;">
-    Hostel Office, Transit Hostel (Ramanujan Hostel)<br />
-    Delhi Technological University<br />
-    Shahbad Daulatpur, Main Bawana Road<br />
-    Delhi - 42, India
+<footer class="dtu-footer-bar">
+  <div class="footer-main">
+    <div class="footer-col footer-col-left">
+      <div class="footer-logo-title" style="display: flex; align-items: center; gap: 12px;">
+        <img id="footer-dtu-logo" src="images/dtu-logo.png" alt="DTU Logo" style="height: 48px; width: auto;" />
+        <span class="dtu-footer-title">Delhi Technological University Hostels</span>
+      </div>
+      <div class="dtu-footer-copy">&copy; 2014-<span id="current-year"></span> DTU Hostel. All rights reserved.</div>
+      <div class="dtu-footer-links-vertical">
+        <a href="/index.html">Home</a>
+        <a href="/pages/utility/contact.html">Contact</a>
+        <a href="/pages/utility/feedback-form.html">Feedback</a>
+        <a href="/pages/disclaimer.html">Disclaimer</a>
+      </div>
+    </div>
+    <div class="footer-col footer-col-right footer-col-right-align">
+      <div class="footer-address-title">Hostel Office, Transit Hostel (Ramanujan Hostel)</div>
+      <div>Delhi Technological University</div>
+      <div>Shahbad Daulatpur, Main Bawana Road</div>
+      <div>Delhi - 42, India</div>
+      <div style="height: 8px;"></div>
+      <div><strong>Chief Warden:</strong> Prof. Raj Kumar Singh</div>
+      <div><strong>OIC, Hostel Office:</strong> Dr. Sanjay Patidar</div>
+      <div><strong>Email:</strong> <a href="mailto:hostels@dtu.ac.in">hostels@dtu.ac.in</a></div>
+      <div><strong>Contact:</strong> +911-27852204, 9716304018, 9555902621 Extn: 1104, 1113</div>
+      <div class="footer-contact-note">Available 10 a.m. to 5 p.m. on working days.</div>
+    </div>
   </div>
 </footer>
 

@@ -68,17 +68,34 @@ function setImageSources(pathToRoot) {
   const linkedinIcon = document.getElementById('linkedin-icon');
   const xIcon = document.getElementById('x-icon');
   
-  // Set the DTU logo path (with logging for debugging)
+  // Set the DTU logo path (with fallback for non-home pages)
   if (dtuLogo) {
-    console.log('Setting dtu-logo src to:', pathToRoot + 'images/dtu-logo.png');
-    dtuLogo.src = pathToRoot + 'images/dtu-logo.png';
+    let logoPath = pathToRoot + 'images/dtu-logo.png';
+    dtuLogo.onerror = function() {
+      // Fallback for non-home pages if pathToRoot is wrong
+      this.onerror = null;
+      this.src = '../../images/dtu-logo.png';
+    };
+    dtuLogo.src = logoPath;
   } else {
     console.warn('dtu-logo element not found');
   }
   
-  // Set the social media icon paths if the elements exist
-  if (instagramIcon) instagramIcon.src = pathToRoot + 'images/instagram-icon.png';
-  if (facebookIcon) facebookIcon.src = pathToRoot + 'images/facebook-icon.png';
-  if (linkedinIcon) linkedinIcon.src = pathToRoot + 'images/linkedin-icon.png';
-  if (xIcon) xIcon.src = pathToRoot + 'images/x-icon.png';
+  // Set the social media icon paths if the elements exist (with fallback)
+  if (instagramIcon) {
+    instagramIcon.onerror = function() { this.onerror = null; this.src = '../../images/instagram-icon.png'; };
+    instagramIcon.src = pathToRoot + 'images/instagram-icon.png';
+  }
+  if (facebookIcon) {
+    facebookIcon.onerror = function() { this.onerror = null; this.src = '../../images/facebook-icon.png'; };
+    facebookIcon.src = pathToRoot + 'images/facebook-icon.png';
+  }
+  if (linkedinIcon) {
+    linkedinIcon.onerror = function() { this.onerror = null; this.src = '../../images/linkedin-icon.png'; };
+    linkedinIcon.src = pathToRoot + 'images/linkedin-icon.png';
+  }
+  if (xIcon) {
+    xIcon.onerror = function() { this.onerror = null; this.src = '../../images/x-icon.png'; };
+    xIcon.src = pathToRoot + 'images/x-icon.png';
+  }
 } 

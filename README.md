@@ -10,11 +10,14 @@ This is a **frontend prototype** created for the Hostel Management Department of
 
 ## ✨ Features
 
-- 📱 Fully responsive design
-- 🔄 Dynamic component loading
-- 📱 Mobile-friendly navigation
+- 🖥️ **Strictly desktop-only layout** (viewport width=1200px)
+- 🧩 Dynamic component loading (header, navbar, sidebar, footer)
 - 🖼️ Homepage image slideshow
-- 📐 Standardized page layout
+- 📰 Sidebar always on the right of main content
+- 📄 Consistent favicon and footer logo on all pages/components
+- 📂 Robust dynamic path handling for images and components
+- 📥 PDF/document download links use the convention `documents/NAME.pdf`
+- 📐 Standardized page layout for all content
 - 🚀 Pure HTML/CSS/JavaScript implementation
 
 ## 🏗️ Project Structure
@@ -28,16 +31,17 @@ This is a **frontend prototype** created for the Hostel Management Department of
 │   ├── navbar.html
 │   ├── sidebar-widget.html
 │   └── slideshow.html
-├── documents/             # Downloadable documents/forms
-├── images/               # Image assets
-├── pages/               # Website content pages
-│   ├── about-us/
-│   ├── fees/
+├── documents/             # Downloadable documents/forms (PDFs, etc.)
+├── images/                # Image assets
+│   └── hostels/           # Hostel-specific images
+├── pages/                 # Website content pages
+│   ├── about-us/          # About, council, anti-ragging, etc.
+│   ├── fees/              # Fee structure, payment, etc.
 │   ├── hostels/
 │   │   ├── boys/
 │   │   └── girls/
-│   └── utility/
-├── scripts/             # JavaScript files
+│   └── utility/           # Contact, feedback, performa
+├── scripts/               # JavaScript files
 │   ├── script.js
 │   ├── fix-sidebar.js
 │   ├── header-loader.js
@@ -64,16 +68,25 @@ The project includes Node.js scripts used for development and maintenance:
 - ✅ Firefox (latest 2 versions)
 - ✅ Edge
 - ✅ Safari
-- ✅ iOS Safari
-- ✅ Android Chrome
 
-## 🎓 Academic Use
+> **Note:** The site is **desktop-only**. On mobile devices, users will need to zoom and scroll to view content.
 
-For academic submissions where only front-end technologies are allowed:
+## 🖥️ Desktop-Only Experience
 
-1. The Node.js scripts were one-time development tools
-2. The deployed site runs entirely on client-side HTML/CSS/JS
-3. No frameworks, build tools, or servers are required
+- All pages use `<meta name="viewport" content="width=1200" />` for a fixed-width desktop layout.
+- No mobile or tablet layout is provided. The site will not reflow for small screens.
+- To add a new page, always include the desktop viewport meta tag in the `<head>`:
+  ```html
+  <meta name="viewport" content="width=1200" />
+  ```
+- The sidebar is always displayed to the right of the main content.
+- The favicon and footer logo are present and robustly loaded on every page/component.
+- All image and component paths are dynamically resolved for every page depth.
+
+## 📥 Document Download Convention
+
+- All downloadable PDFs and documents are placed in the `documents/` folder.
+- Download links use the format: `documents/NAME.pdf` (spaces replaced with underscores, special characters removed).
 
 ## 👨‍💻 Author
 

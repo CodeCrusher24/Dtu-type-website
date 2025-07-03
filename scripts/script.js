@@ -88,9 +88,49 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Initialize slideshow if present
   initializeSlideshow();
-  
-  // Initialize mobile menu functionality (will be created after navbar loads)
-  setTimeout(initializeMobileMenu, 1000);
+
+  // Add align-right to last 2 dropdowns in navbar
+  setTimeout(() => {
+    const dropdowns = document.querySelectorAll('.navbar li.dropdown');
+    if (dropdowns.length > 2) {
+      dropdowns[dropdowns.length - 1].classList.add('align-right');
+      dropdowns[dropdowns.length - 2].classList.add('align-right');
+    }
+  }, 500);
+
+  // Detect touch support
+  var isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+  if (isTouch) document.body.classList.add('touch-device');
+
+  // Add down arrow to each dropdown parent
+  document.querySelectorAll('.navbar .dropdown > a').forEach(link => {
+    if (!link.querySelector('.dropdown-arrow')) {
+      var arrow = document.createElement('span');
+      arrow.className = 'dropdown-arrow';
+      arrow.innerHTML = '&#9660;'; // ▼
+      link.appendChild(arrow);
+    }
+  });
+
+  // Dropdown click logic for touch devices only
+  if (isTouch) {
+    const dropdownLinks = document.querySelectorAll('.navbar .dropdown > a');
+    dropdownLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+        const parentLi = this.parentElement;
+        const isOpen = parentLi.classList.contains('open');
+        // Close all other dropdowns
+        document.querySelectorAll('.navbar .dropdown').forEach(li => {
+          if (li !== parentLi) li.classList.remove('open');
+        });
+        if (!isOpen) {
+          // Open dropdown, prevent navigation
+          e.preventDefault();
+          parentLi.classList.add('open');
+        } // else: allow navigation
+      });
+    });
+  }
 });
 
 /**
@@ -132,7 +172,18 @@ function loadComponents(pathToRoot, depth) {
   loadComponent("sidebar-widget", pathToRoot + "components/sidebar-widget.html");
   
   // Load footer component
-  loadComponent("footer", pathToRoot + "components/footer.html");
+  loadComponent("footer", pathToRoot + "components/footer.html").then(() => {
+    // Fix the footer logo path after footer loads
+    const footerLogo = document.getElementById('footer-dtu-logo');
+    if (footerLogo) {
+      let logoPath = pathToRoot + 'images/dtu-logo.png';
+      footerLogo.onerror = function() {
+        this.onerror = null;
+        this.src = '../../images/dtu-logo.png';
+      };
+      footerLogo.src = logoPath;
+    }
+  });
 }
 
 /**
@@ -142,11 +193,25 @@ function loadComponents(pathToRoot, depth) {
  * @param {number} depth - The directory depth from root
  */
 function loadNavbar(pathToRoot, depth) {
-  // Base navbar file to use
-  let navbarFile = "navbar.html";
-  
+  console.log('Attempting to load navbar...');
+  // Find the header container inside .wrapper
+  const wrapper = document.querySelector('.wrapper');
+  const header = wrapper ? wrapper.querySelector('#header') : null;
+  if (!wrapper || !header) {
+    console.warn('Wrapper or header not found for navbar injection');
+    return;
+  }
+
+  // Remove any existing navbar or toggle button immediately after header
+  let next = header.nextElementSibling;
+  while (next && (next.classList.contains('navbar') || next.classList.contains('mobile-menu-toggle'))) {
+    let toRemove = next;
+    next = next.nextElementSibling;
+    toRemove.remove();
+  }
+
   // Load the navbar HTML
-  fetch(pathToRoot + "components/" + navbarFile)
+  fetch(pathToRoot + "components/navbar.html")
     .then((response) => {
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status} when fetching navbar`);
@@ -154,54 +219,66 @@ function loadNavbar(pathToRoot, depth) {
       return response.text();
     })
     .then((html) => {
-      const container = document.getElementById("navbar");
-      if (!container) {
-        console.warn("Navbar container not found");
-        return;
+      console.log('Navbar HTML loaded successfully. Injecting into DOM.');
+      console.log('Navbar HTML:', html);
+      // Remove test div and debug code
+      // Extract only the <ul>...</ul> part from the loaded HTML
+      const ulMatch = html.match(/<ul[\s\S]*<\/ul>/);
+      if (ulMatch) {
+        const navbar = document.createElement('nav');
+        navbar.className = 'navbar';
+        navbar.innerHTML = ulMatch[0];
+        header.insertAdjacentElement('afterend', navbar);
+      } else {
+        console.error('Navbar HTML did not contain a <ul>...</ul> block.');
       }
-      
-      // Before adding navbar, add mobile toggle button
-      const mobileToggle = document.createElement('button');
-      mobileToggle.className = 'mobile-menu-toggle';
-      mobileToggle.innerHTML = 'Menu';
-      mobileToggle.setAttribute('aria-label', 'Toggle navigation menu');
-      container.appendChild(mobileToggle);
-      
-      // Add the rest of the navbar
-      const navContent = document.createElement('div');
-      navContent.innerHTML = html;
-      container.appendChild(navContent);
-      
-      // Now adjust all links in the navbar based on the current depth
-      const links = container.querySelectorAll("a");
+
+      // Adjust all links in the navbar based on the current depth
+      const links = navbar.querySelectorAll("a");
       links.forEach(link => {
         let href = link.getAttribute("href");
-        
-        // Skip absolute links or links with # or javascript:
         if (!href || href.startsWith("http") || href.startsWith("#") || href.startsWith("javascript:")) {
           return;
         }
-        
-        // Make the link relative to the current page location
         if (href.startsWith("/")) {
-          // If it's a root-relative link (starts with /), make it relative to pathToRoot
           link.href = pathToRoot + href.substring(1);
         } else if (href.startsWith("../") && depth === 0) {
-          // Don't modify links that are already using relative paths properly
           // No change needed
         } else if (href.startsWith("pages/") && depth > 0) {
-          // If we're in a subdirectory and the link points to pages/
           link.href = pathToRoot + href;
         } else if (href === "index.html" && depth > 0) {
-          // If link is to index.html and we're in a subdirectory
           link.href = pathToRoot + href;
         }
-        
-        // If this is a link to the disclaimer page from anywhere, fix it
         if (href.includes("disclaimer.html")) {
           link.href = pathToRoot + "pages/disclaimer.html";
         }
       });
+
+      // Dropdown click logic for desktop only
+      const dropdownLinks = document.querySelectorAll('.navbar .dropdown > a');
+      dropdownLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          const parentLi = this.parentElement;
+          const isOpen = parentLi.classList.contains('open');
+          // Close all other dropdowns
+          document.querySelectorAll('.navbar .dropdown').forEach(li => {
+            if (li !== parentLi) li.classList.remove('open');
+          });
+          if (!isOpen) {
+            // Open dropdown, prevent navigation
+            e.preventDefault();
+            parentLi.classList.add('open');
+          } else {
+            // Allow navigation to parent link
+            // No preventDefault, browser will follow link
+          }
+        });
+      });
+
+      // Make sure the navbar is visible in desktop view
+      if (window.innerWidth >= 768) {
+        navbar.style.transform = 'none';
+      }
     })
     .catch((error) => {
       console.error("Error loading navbar:", error);
@@ -221,7 +298,7 @@ function loadComponent(containerId, componentUrl) {
     console.warn(`Container #${containerId} not found`);
     return Promise.resolve();
   }
-  
+  console.log(`Loading component #${containerId} from ${componentUrl}`);
   return fetch(componentUrl)
     .then((response) => {
       if (!response.ok) {
@@ -231,14 +308,12 @@ function loadComponent(containerId, componentUrl) {
     })
     .then((html) => {
       container.innerHTML = html;
-      
       // If this is the footer, initialize the current year script
       if (containerId === "footer") {
         const yearElement = container.querySelector('#current-year');
         if (yearElement) {
           yearElement.textContent = new Date().getFullYear();
         }
-        
         // Also fix any links in the footer
         const footerLinks = container.querySelectorAll('a');
         footerLinks.forEach(link => {
@@ -248,95 +323,21 @@ function loadComponent(containerId, componentUrl) {
           }
         });
       }
-      
+      // If this is the sidebar, log for debugging
+      if (containerId === "sidebar-widget") {
+        console.log('Sidebar widget loaded.');
+      }
+      if (containerId === "footer") {
+        console.log('Footer loaded.');
+      }
+      if (containerId === "header") {
+        console.log('Header loaded.');
+      }
       return html;
     })
     .catch((error) => {
       console.error(`Error loading ${containerId} from ${componentUrl}:`, error);
     });
-}
-
-/**
- * Initializes mobile navigation menu toggle functionality
- * Only applies to screens below 768px width
- */
-function initializeMobileMenu() {
-  // Check if we're on a mobile device (screen width below 768px)
-  const isMobileView = window.innerWidth < 768;
-  const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-  const navbar = document.querySelector('.navbar');
-  
-  if (mobileMenuToggle && navbar) {
-    const navbarUl = navbar.querySelector('ul');
-    
-    // Toggle menu on button click (only works on mobile)
-    mobileMenuToggle.addEventListener('click', function() {
-      if (window.innerWidth < 768) {  // Double-check we're still on mobile
-        navbarUl.classList.toggle('expanded');
-        
-        // Change button text based on state
-        if (navbarUl.classList.contains('expanded')) {
-          mobileMenuToggle.innerHTML = 'Close';
-        } else {
-          mobileMenuToggle.innerHTML = 'Menu';
-        }
-      }
-    });
-    
-    // Handle dropdowns on mobile
-    const dropdownLinks = navbar.querySelectorAll('.dropdown > a');
-    dropdownLinks.forEach(link => {
-      link.addEventListener('click', function(e) {
-        // Only apply this behavior on mobile screens
-        if (window.innerWidth < 768) {
-          e.preventDefault();
-          const dropdownMenu = this.nextElementSibling;
-          
-          // Toggle this specific dropdown menu
-          if (dropdownMenu) {
-            if (dropdownMenu.style.display === 'block') {
-              dropdownMenu.style.display = 'none';
-            } else {
-              // Hide all other dropdown menus first
-              navbar.querySelectorAll('.dropdown-menu').forEach(menu => {
-                if (menu !== dropdownMenu) {
-                  menu.style.display = 'none';
-                }
-              });
-              dropdownMenu.style.display = 'block';
-            }
-          }
-        }
-      });
-    });
-    
-    // Close mobile menu when clicking outside
-    document.addEventListener('click', function(e) {
-      if (window.innerWidth < 768 && 
-          !navbar.contains(e.target) &&
-          !mobileMenuToggle.contains(e.target) &&
-          navbarUl.classList.contains('expanded')) {
-        navbarUl.classList.remove('expanded');
-        mobileMenuToggle.innerHTML = 'Menu';
-      }
-    });
-    
-    // Handle window resize events to reset menu state when switching between mobile and desktop
-    window.addEventListener('resize', function() {
-      if (window.innerWidth >= 768) {
-        // Reset mobile menu when resized to desktop
-        if (navbarUl.classList.contains('expanded')) {
-          navbarUl.classList.remove('expanded');
-          mobileMenuToggle.innerHTML = 'Menu';
-        }
-        
-        // Reset dropdown menus
-        navbar.querySelectorAll('.dropdown-menu').forEach(menu => {
-          menu.style.display = '';  // Reset to default CSS value
-        });
-      }
-    });
-  }
 }
 
 /**
@@ -441,4 +442,4 @@ function initializeSlideshow() {
     clearInterval(autoplayTimer);
     startAutoplay();
   }
-} 
+}
