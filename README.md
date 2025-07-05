@@ -6,7 +6,7 @@
 
 This is a **frontend prototype** created for the Hostel Management Department of **Delhi Technological University (DTU)**. It serves as a **sample submission** and is not an official DTU website. The project demonstrates frontend capabilities using **vanilla HTML, CSS, and JavaScript**.
 
-🔗 **Live Demo**: [View Website](https://roaring-meringue-aac216.netlify.app/) ✅
+🔗 **Live Demo**: [View Website](https://hostels-dtu.netlify.app/) ✅
 
 ## ✨ Features
 
